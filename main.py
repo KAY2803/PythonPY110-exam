@@ -37,19 +37,17 @@ def generate_books(pk=1):
 
 if __name__ == "__main__":
 
-
-    def final_gen_book(pk=1):
+    with open('gen_book', 'w', encoding='utf-8') as file:
+        pk = 1
         for _ in range(5):
-            fields = next(generate_books())
-            with open('gen_book', 'w', encoding='utf-8') as file:
-                for _ in range(5):
-                    books = {
-                            'model': conf.MODEL,
-                            'pk': pk,
-                            'fields': fields
-                    }
+            books = {
+                        'model': conf.MODEL,
+                        'pk': pk,
+                        'fields': next(generate_books())
+            }
             pk += 1
-            return json.dump(books, file, ensure_ascii=False, indent=4)
+            json.dump(books, file, ensure_ascii=False, indent=4)
+
 
 
 
