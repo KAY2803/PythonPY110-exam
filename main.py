@@ -36,7 +36,7 @@ if __name__ == "__main__":
 
     def gen_books(pk=1):
         with open('gen_book', 'w', encoding='utf-8') as file:
-            for _ in range(3):
+            for _ in range(100):
                 books = {
                         'model': conf.MODEL,
                         'pk': pk,
